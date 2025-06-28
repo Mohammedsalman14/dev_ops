@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "ready to create the instance in mumbai region"
+Resources:
+  MyEc2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: "ami-0f918f7e67a3323f0"
+      KeyName: "myec2_key"
+      InstanceType: "t2.micro"
+      Tags:
+        - Key: Name
+          Value: MyCustomEC2Instance
+      
