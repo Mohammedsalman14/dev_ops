@@ -1,6 +1,6 @@
-def myFile
 pipeline{
     agent any
+
     stages{
         stage("init"){
             steps{
