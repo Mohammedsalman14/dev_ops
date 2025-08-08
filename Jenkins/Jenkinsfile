@@ -1,35 +1,31 @@
-def myFile
+def gv
 pipeline{
     agent any
+    
+    stages{ 
 
-    stages{
         stage("init"){
-            steps{
-                script{
-                    myFile = load "./file.groovy"
-                }
-            }     
+            gv= load "file.groovy"
         }
-
 
         stage("build"){
             steps{
                 script{
-                    myFile.build()
+                    gv.build()
                 }
             }
         }
         stage("test"){
             steps{
                 script{
-                    myFile.test()
+                    gv.test()
                 }
             }
         }
         stage("deploy"){
             steps{
                 script{
-                    myFile.deploy()
+                    gv.deploy()
                 }
             }
         }
