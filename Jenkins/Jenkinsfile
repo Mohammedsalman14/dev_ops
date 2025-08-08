@@ -1,3 +1,4 @@
+def myFile
 pipeline{
     agent any
 
