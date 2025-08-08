@@ -1,25 +1,34 @@
-def gv= load 'file.groovy'
-pipeline{
+pipeline {
     agent any
-    stages{
 
-        stage("build"){
-            steps{
-                script{
+    stages {
+        stage('Load Script') {
+            steps {
+                script {
+                    gv = load 'file.groovy'
+                }
+            }
+        }
+
+        stage("Build") {
+            steps {
+                script {
                     gv.build()
                 }
             }
         }
-        stage("test"){
-            steps{
-                script{
+
+        stage("Test") {
+            steps {
+                script {
                     gv.test()
                 }
             }
         }
-        stage("deploy"){
-            steps{
-                script{
+
+        stage("Deploy") {
+            steps {
+                script {
                     gv.deploy()
                 }
             }
