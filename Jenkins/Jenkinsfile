@@ -6,7 +6,7 @@ pipeline{
         stage("init"){
             steps{
                 script{
-                    gv = load 'file.groovy'
+                    gv = load '/home/salman/Documents/salman/dev_ops/Jenkins/file.groovy'
                 }
             }
         }
