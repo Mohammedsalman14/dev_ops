@@ -1,36 +1,35 @@
+def myScript
+
 pipeline {
     agent any
 
     stages {
-        stage('Load Script') {
+        stage('Init') {
             steps {
                 script {
-                    def gv = load 'Jenkins/file.groovy'
+                    // Load the Groovy script
+                    myScript = load 'file.groovy'
                 }
             }
         }
-
-
-        stage("Build") {
+        stage('Build') {
             steps {
                 script {
-                    gv.build()
+                    myScript.build()
                 }
             }
         }
-
-        stage("Test") {
+        stage('Test') {
             steps {
                 script {
-                    gv.test()
+                    myScript.test()
                 }
             }
         }
-
-        stage("Deploy") {
+        stage('Deploy') {
             steps {
                 script {
-                    gv.deploy()
+                    myScript.deploy()
                 }
             }
         }
