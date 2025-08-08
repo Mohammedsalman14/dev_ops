@@ -1,4 +1,4 @@
-def myFile = load 'file.groovy'
+def myFile = load './file.groovy'
 pipeline{
     agent any
     stages{
