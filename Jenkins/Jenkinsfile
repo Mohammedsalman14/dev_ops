@@ -1,15 +1,7 @@
-def gv
+def gv= load 'file.groovy'
 pipeline{
     agent any
-    stages{ 
-
-        stage("init"){
-            steps{
-                script{
-                    gv = load '/home/salman/Documents/salman/dev_ops/Jenkins/file.groovy'
-                }
-            }
-        }
+    stages{
 
         stage("build"){
             steps{
