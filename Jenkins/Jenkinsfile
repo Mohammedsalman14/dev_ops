@@ -1,19 +1,26 @@
+def myFile = load 'file.groovy'
 pipeline{
     agent any
     stages{
         stage("build"){
             steps{
-                echo "building the application..."
+                script{
+                    myFile.build()
+                }
             }
         }
         stage("test"){
             steps{
-                echo "testing the application..."
+                script{
+                    myFile.test()
+                }
             }
         }
         stage("deploy"){
             steps{
-                echo "deploying the application..."
+                script{
+                    myFile.deploy()
+                }
             }
         }
     }
