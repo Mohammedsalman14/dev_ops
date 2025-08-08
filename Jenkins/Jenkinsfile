@@ -1,7 +1,16 @@
-def myFile = load './file.groovy'
+def myFile
 pipeline{
     agent any
     stages{
+        stage("init"){
+            steps{
+                script{
+                    myFile= = load "./file.groovy"
+                }
+            }     
+        }
+
+
         stage("build"){
             steps{
                 script{
