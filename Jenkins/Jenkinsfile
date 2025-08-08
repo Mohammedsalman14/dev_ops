@@ -1,34 +1,33 @@
-pipeline {
+pipeline{
     agent any
 
-    stages {
-        stage("init") {
-            steps {
-                script {
-                    myFile = load "file.groovy" // no need for "./" unless in subdir
+    stages{
+        stage("init"){
+            steps{
+                script{
+                    myFile = load "./file.groovy"
                 }
-            }
+            }     
         }
 
-        stage("build") {
-            steps {
-                script {
+
+        stage("build"){
+            steps{
+                script{
                     myFile.build()
                 }
             }
         }
-
-        stage("test") {
-            steps {
-                script {
+        stage("test"){
+            steps{
+                script{
                     myFile.test()
                 }
             }
         }
-
-        stage("deploy") {
-            steps {
-                script {
+        stage("deploy"){
+            steps{
+                script{
                     myFile.deploy()
                 }
             }
