@@ -1,36 +1,21 @@
-def myScript
-
 pipeline {
     agent any
 
     stages {
-        stage('Init') {
-            steps {
-                script {
-                    // Load the Groovy script
-                    myScript = load 'file.groovy'
-                }
-            }
-        }
         stage('Build') {
             steps {
-                script {
-                    myScript.build()
-                }
+                echo "building the app"
             }
         }
+        
         stage('Test') {
             steps {
-                script {
-                    myScript.test()
-                }
+               echo "testing the app"
             }
         }
         stage('Deploy') {
             steps {
-                script {
-                    myScript.deploy()
-                }
+                echo "deploying the app"
             }
         }
     }
