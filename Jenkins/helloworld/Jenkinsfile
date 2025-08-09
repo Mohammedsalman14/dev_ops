@@ -7,11 +7,11 @@ pipeline{
     stages{
         stage("build jar"){
             steps{
-                {
+                
                     script{
                         sh 'mvn package'
                     }
-                }
+                
             }
         }
         stage("build image"){
