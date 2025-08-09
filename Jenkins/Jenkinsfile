@@ -5,7 +5,7 @@ pipeline {
         stage("init"){
             steps{
                 script{
-                    def filePath = "scripts/file.groovy"
+                    def filePath = "script.groovy"
                     if (fileExists(filePath)) {
                         gv = load filePath
                     } else {
