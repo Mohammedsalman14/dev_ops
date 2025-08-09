@@ -7,8 +7,9 @@ pipeline{
     stages{
         stage("build jar"){
             steps{
-            
-                sh 'mvn package'
+                dir('helloworld') {
+                    sh 'mvn package'
+                }
                 
             }
         }
