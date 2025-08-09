@@ -2,6 +2,13 @@ pipeline {
     agent any
 
     stages {
+        stage("init"){
+            steps{
+                script{
+                    def gv= load 'file.groovy'
+                }
+            }
+        }
         stage('Build') {
             steps {
                 echo "building the app"
