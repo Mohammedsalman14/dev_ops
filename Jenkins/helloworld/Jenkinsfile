@@ -5,6 +5,11 @@ pipeline{
     }
 
     stages{
+        stage("chk_dir"){
+            steps{
+                sh 'ls -ltrh'
+            }
+        }
         stage("build jar"){
             steps{
             
