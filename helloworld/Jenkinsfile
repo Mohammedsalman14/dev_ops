@@ -16,6 +16,7 @@ pipeline{
         stage("build image"){
             steps{
                 script{
+                    dir('helloworld'){
                     echo "Building the docker image..."
                     withCredentials([usernamePassword(
                     credentialsId: 'dockerhub_credentials',
@@ -28,6 +29,7 @@ pipeline{
                     sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
                     sh 'docker push salman14/salman14_helloworld'
                 } 
+                }
                 }
             }
         }
