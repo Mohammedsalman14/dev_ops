@@ -5,7 +5,7 @@ pipeline {
         stage("init"){
             steps{
                 script{
-                    def filePath = "./script.groovy"
+                    def filePath = "/home/salman/Documents/salman/dev_ops/Jenkins/script.groovy"
                     if (fileExists(filePath)) {
                         gv = load filePath
                     } else {
