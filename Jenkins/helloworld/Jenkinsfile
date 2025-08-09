@@ -8,7 +8,7 @@ pipeline{
         stage("build jar"){
             steps{
             
-                sh 'mvn package'
+                sh 'mvn --version'
                 
             }
         }
