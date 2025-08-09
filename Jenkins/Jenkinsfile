@@ -1,12 +1,16 @@
 def gv
 pipeline {
     agent any
-
     stages {
         stage("init"){
             steps{
                 script{
-                     gv= load "scripts/file.groovy"
+                    def filePath = "scripts/file.groovy"
+                    if (fileExists(filePath)) {
+                        gv = load filePath
+                    } else {
+                        echo "⚠ ${filePath} not found, skipping load"
+                    }
                 }
             }
         }
@@ -15,7 +19,6 @@ pipeline {
                 echo "building the app"
             }
         }
-        
         stage('Test') {
             steps {
                echo "testing the app"
