@@ -1,10 +1,11 @@
-def gv
+def gv // declare at top-level so all stages can use it
+
 pipeline {
     agent any
     stages {
-        stage("init"){
-            steps{
-                script{
+        stage("init") {
+            steps {
+                script {
                     def filePath = "/home/salman/Documents/salman/dev_ops/Jenkins/script.groovy"
                     if (fileExists(filePath)) {
                         gv = load filePath
@@ -16,12 +17,15 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo "building the app"
+                script {
+                    echo "building the app"
+                    gv.build() // example usage
+                }
             }
         }
         stage('Test') {
             steps {
-               echo "testing the app"
+                echo "testing the app"
             }
         }
         stage('Deploy') {
