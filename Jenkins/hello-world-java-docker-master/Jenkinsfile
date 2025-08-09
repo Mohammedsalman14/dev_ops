@@ -7,7 +7,11 @@ pipeline{
     stages{
         stage("build jar"){
             steps{
-                sh 'mvn --version'
+                {
+                    script{
+                        sh 'mvn package'
+                    }
+                }
             }
         }
         stage("build image"){
@@ -20,8 +24,18 @@ pipeline{
                     passwordVariable: 'DOCKER_PASS'
                 )])
                 {
+                    echo "bulding the docker image..."
+                    sh 'docker build -t salman14/salman14_helloworld .'
                     sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
+                    sh 'docker push salman14/salman14_helloworld'
                 } 
+                }
+            }
+        }
+        stage("deploy"){
+            steps{
+                script{
+                    echo "deploying the application..."
                 }
             }
         }
